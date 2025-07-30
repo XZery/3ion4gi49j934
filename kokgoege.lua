@@ -1,7 +1,13 @@
-local original_HttpGet = game.HttpGet
+local original_HttpGet = nil
 game.HttpGet = function(url)
     game.HttpGet = original_HttpGet
-    error("Skipping blacklist check")
+    error("Removed HttpGet")
+end
+local Players = game:GetService("Players")
+local original_Kick = nil
+Players.Kick = function()
+    Players.Kick = original_Kick
+    error("Removed Kick")
 end
 --[[
 
